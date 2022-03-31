@@ -29,7 +29,7 @@ puts "------------------------------------------------"
 puts "Start parsing CSV"
 
 # You can change the filepath to 'db/ressources/memory-tech-challenge-data.csv' for have the entire CSV file
-# The seed takes too long time and heroku's ram doesn't love that.... so i cut the for the seed, sorry
+# The seed takes too long time and heroku's ram doesn't love that.... so i cut the for the seed, sorry..
 # But this seed works for the original file !
 filepath = 'db/ressources/seed-memory-tech-challenge-data.csv'
 
