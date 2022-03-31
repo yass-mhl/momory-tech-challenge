@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+
+  <%= simple_form_for :search, url: root_path, method: :get do |f|%>
+    <%= f.input :country, collection: @countries, :selected => 0 %>
+    <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <% end %>
+
+  <strong>Total revenue</strong>
+  <p><%= @total_revenue %> K€</p>
+
+  <strong>Average revenue / order</strong>
+  <p><%= @average_revenue %> €</p>
+
+  <strong>Number of customers</strong>
+  <p><%= @nb_customers %> </p>
+
+</div>
