@@ -9,15 +9,15 @@ require 'csv'
 
 puts "Destroy order products"
 
-OrderProduct.destroy_all
+OrderProduct.delete_all
 
 puts "Destroy orders"
 
-Order.destroy_all
+Order.delete_all
 
 puts "Destroy customers"
 
-Customer.destroy_all
+Customer.delete_all
 
 customers = []
 orders = []
@@ -28,7 +28,10 @@ order_ids = []
 puts "------------------------------------------------"
 puts "Start parsing CSV"
 
-filepath = 'db/ressources/memory-tech-challenge-data.csv'
+# You can change the filepath to 'db/ressources/memory-tech-challenge-data.csv' for have the entire CSV file
+# The seed takes too long time so i cut the for the seed, sorry
+# But this seed works for the original file !
+filepath = 'db/ressources/seed-memory-tech-challenge-data.csv'
 
 CSV.foreach(filepath, col_sep: ',', quote_char: '"', headers: :first_row) do |row|
   unless customer_ids.include?(row['customer_id'])
