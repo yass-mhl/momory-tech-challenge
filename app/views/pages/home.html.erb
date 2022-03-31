@@ -1,17 +1,28 @@
 <div class="container">
+  <div class="row">
+    <%= simple_form_for :search, url: root_path, method: :get  do |f|%>
+      <%= f.input :country, collection: @countries, :selected => 0, class:'col-6' %>
+      <button type="submit" class="btn btn-primary mb-2 col-3">Submit</button>
+    <% end %>
+  </div>
+  <h2>Summary</h2>
+  <div class="d-container">
+    <div class="card d-card">
+      <strong>Total revenue</strong>
+      <p><%= @total_revenue %> K€</p>
+    </div>
 
-  <%= simple_form_for :search, url: root_path, method: :get do |f|%>
-    <%= f.input :country, collection: @countries, :selected => 0 %>
-    <button type="submit" class="btn btn-primary mb-2">Submit</button>
-  <% end %>
+    <div class="card d-card">
+      <strong>Average revenue / order</strong>
+      <p><%= @average_revenue %> €</p>
+    </div>
 
-  <strong>Total revenue</strong>
-  <p><%= @total_revenue %> K€</p>
+    <div class="card d-card">
+      <strong>Number of customers</strong>
+      <p><%= @nb_customers %> </p>
+    </div>
 
-  <strong>Average revenue / order</strong>
-  <p><%= @average_revenue %> €</p>
 
-  <strong>Number of customers</strong>
-  <p><%= @nb_customers %> </p>
-
+  </div>
+  <h2>Revenue per month</h2>
 </div>
