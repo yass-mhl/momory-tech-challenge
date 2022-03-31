@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <%= simple_form_for :search, url: root_path, method: :get  do |f|%>
       <%= f.input :country, collection: @countries, :selected => 0, class:'col-6' %>
       <button type="submit" class="btn btn-primary mb-2 col-3">Submit</button>
@@ -21,8 +21,22 @@
       <strong>Number of customers</strong>
       <p><%= @nb_customers %> </p>
     </div>
-
-
   </div>
   <h2>Revenue per month</h2>
+
+  <div id="chart-x-data"
+    <% (1..12).each do |i| %>
+    data-m<%= i %>="<%=@months[i-1]%>"
+    <%end %>>
+  </div>
+
+  <div id="chart-y-data" <% (1..12).each do |i| %>
+      data-m<%= i %>="<%=@revenues_per_month[i-1]%>"
+    <%end %>>
+  </div>
+
+  <div class="mb-5">
+    <canvas id="myChart" width="800" height="300"></canvas>
+  </div>
+
 </div>
