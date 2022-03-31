@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   # Find all countries with customers
   def countries_list
     countries = ['All']
-    Customer.all.each do |customer|
+    Customer.find_each do |customer|
       countries << customer.country unless countries.include?(customer.country)
     end
     return countries
@@ -55,7 +55,7 @@ class PagesController < ApplicationController
         end
       end
     else
-      OrderProduct.all.each { |product| total_revenue += product.quantity * product.unit_price }
+      OrderProduct.find_each { |product| total_revenue += product.quantity * product.unit_price }
     end
     return total_revenue
   end
